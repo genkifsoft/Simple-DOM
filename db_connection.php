@@ -25,4 +25,8 @@ class Database {
     function __destruct() {
         mysqli_close($this->CONN);
     }
+
+    function connected() {
+        return $this->CONN;
+    }
 }

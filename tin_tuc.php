@@ -14,7 +14,7 @@ class Tin{
     }
 
     function Insert() {
-        $sql = "INSERT INTO news(url, title, image, content)
-                VALUES ('$this->URL', '$this->TITLE', 'default-image', '$this->DETAILCONTENT')";
+        return "INSERT INTO news(url, title, image, content)
+                VALUES ('$this->URL', '$this->TITLE', '$this->IMAGE', '$this->DETAILCONTENT')";
     }
 }

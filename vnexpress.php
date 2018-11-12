@@ -5,7 +5,7 @@ require "tin_tuc.php";
 $connect = new Database();
 
 // Get content page vnexpress. Title, image, content, detail.
-for($i = 1; $i <= 10; $i++) {
+for($i = 1; $i <= 20; $i++) {
     $html = file_get_html("https://vnexpress.net/tin-tuc/phap-luat/page/$i.html");
     $arrayItem = $html->find(".sidebar_1 .list_news");
     foreach($arrayItem as $tin) {
@@ -20,11 +20,10 @@ for($i = 1; $i <= 10; $i++) {
         } else {
             $contentDetail = 'Tag content detail not exits';
         }
-        
-
-        // echo $contentDetail."<br/>"."<hr>";
         $oneItem = new Tin($url, $title, $image, $contentDetail);
-        $oneItem->Insert();
+
+        echo ($contentDetail)."<br>"."<hr>";
+        $result = mysqli_query($connect->connected(), $oneItem->Insert());
     }
 }
 
